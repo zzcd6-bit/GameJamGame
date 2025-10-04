@@ -11,7 +11,7 @@ namespace LANSHEN_SCRIPTS
     {
         public override void Interaction()
         {
-            Debug.Log(gameObject.name);
+            //Debug.Log(gameObject.name);
         }
     }
 }

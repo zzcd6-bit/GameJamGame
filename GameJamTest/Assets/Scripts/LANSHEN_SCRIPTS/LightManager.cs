@@ -55,6 +55,12 @@ namespace LANSHEN_SCRIPTS
             }
         }
 
+        private void LateUpdate()
+        {
+            /*transform.position = new Vector3(transform.position.x,transform.position.y,-10);
+            transform.LookAt(PlayerManager.instance.transform.position);*/
+        }
+
         private void ClampPos()
         {
             var pos = gameObject.transform.position;
