@@ -15,6 +15,7 @@ namespace LANSHEN_SCRIPTS
 {
     public class PlayerManager : MonoBehaviour
     {
+        public bool freezed = false;
         private float _g = 10f;
         public static PlayerManager instance = null;
         //用于检测是否碰撞到阴影
@@ -42,7 +43,7 @@ namespace LANSHEN_SCRIPTS
         }
         
         Animator amimator;
-        void Start()
+        void OnEnable()
         {
             _speed = Vector3.zero;
             img = gameObject.GetComponent<Image>();
@@ -75,13 +76,19 @@ namespace LANSHEN_SCRIPTS
                 break;
             }
             //DontDestroyOnLoad(instance);
-
-            DontDestroyOnLoad(instance);
         }
 
         private Image img;
         void Update()
         {
+            if (freezed)
+            {
+                return;
+            }
+            if (special != 0)
+            {
+                return;
+            }
             _speed.x = 0;
             if (Keyboard.current != null && Keyboard.current.upArrowKey.wasPressedThisFrame)
             {
@@ -156,6 +163,10 @@ namespace LANSHEN_SCRIPTS
 
         private void LateUpdate()
         {
+            if (freezed)
+            {
+                return;
+            }
             if (!LightManager.instance.InArea())
             {
                 return;
@@ -272,6 +283,23 @@ namespace LANSHEN_SCRIPTS
         private void OnDisable()
         {
             instance = null;
+        }
+
+        private int special = 0;
+
+        public float PlaySpecial(string name)
+        {
+            special = 1;
+            amimator.Play(name);
+            var time = 1.1f;
+            special = 1;
+            Invoke(nameof(wait),time);
+            return time;
+        }
+
+        void wait()
+        {
+            special = 0;
         }
 
     }

@@ -13,6 +13,7 @@ namespace LANSHEN_SCRIPTS
 {
     public class LightManager : MonoBehaviour
     {
+        public bool freezed = false;
         private Light _playerLight;
         public GameObject leftDownAxis;
         public GameObject rightTopAxis;
@@ -33,6 +34,10 @@ namespace LANSHEN_SCRIPTS
         // Update is called once per frame
         void Update()
         {
+            if (freezed)
+            {
+                return;
+            }
             var pos = gameObject.transform.position;
             if (Keyboard.current!=null&&Keyboard.current.aKey.IsPressed())//上移
             {

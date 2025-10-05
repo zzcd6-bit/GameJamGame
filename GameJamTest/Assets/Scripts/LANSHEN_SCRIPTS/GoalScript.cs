@@ -27,19 +27,25 @@ public class GoalScript : MonoBehaviour
         {
             return;
         }
-        var pos =  PlayerManager.instance.gameObject.transform.position;
-        Vector2 ppos = new Vector2(pos.x, pos.y);
-        Vector2 gpos = new Vector2(transform.position.x, transform.position.y);
-        if (Vector2.Distance(ppos, gpos) < radius)
+
+        if (PlayerManager.instance != null)
         {
-            hide = true;
-            StartCoroutine(SetHide());
+            var pos =  PlayerManager.instance.gameObject.transform.position;
+            Vector2 ppos = new Vector2(pos.x, pos.y);
+            Vector2 gpos = new Vector2(transform.position.x, transform.position.y);
+            if (Vector2.Distance(ppos, gpos) < radius)
+            {
+                StartCoroutine(SetHide());
+            }  
         }
+        
     }
 
     IEnumerator SetHide()
     {
-        yield return null;
+        yield return new WaitForSeconds(PlayerManager.instance.PlaySpecial("collection"));
+        Debug.Log(1);
+        hide = true;
         gameObject.SetActive(false);
     }
 }

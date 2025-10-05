@@ -39,6 +39,8 @@ public class CameraScript : MonoBehaviour
     private bool guide = false;
     IEnumerator CameraRoutineAnimation()
     {
+        PlayerManager.instance.freezed = true;
+        LightManager.instance.freezed = true;
         for (int i = 0; i < data.Count;i++)
         {
             //先移动相机
@@ -121,7 +123,8 @@ public class CameraScript : MonoBehaviour
     IEnumerator EnterPlayMode()
     {
         var pos = transform.position;
-        var dest = wall.transform.position+new Vector3(0f,1.7f,-8f);
+        var offset = new Vector3(0f, 1.7f, -8f);
+        var dest = wall.transform.position+offset;
         var rot = transform.rotation;
         var destination = Quaternion.LookRotation(new Vector3(0,0,1));
         //if (data.Count > 0)
@@ -144,6 +147,8 @@ public class CameraScript : MonoBehaviour
             }
             //cam.orthographic = true;
         }
+        PlayerManager.instance.freezed = false;
+        LightManager.instance.freezed = false;
         //else
         {
             yield return null;
@@ -169,7 +174,7 @@ public class CameraScript : MonoBehaviour
         {
             return;
         }
-        if (coroutine == null)
+        if (coroutine == null&&PlayerManager.instance)
         {
             transform.position = new Vector3(PlayerManager.instance.transform.position.x,transform.position.y,transform.position.z);
         }
