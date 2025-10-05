@@ -136,7 +136,7 @@ public class UIManager : MonoBehaviour
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentSceneIndex);
 
-        // . 重置游戏状态标志
+        //4 . 重置游戏状态标志
         isPaused = false;
         routine = null;
 
