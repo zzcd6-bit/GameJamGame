@@ -121,10 +121,10 @@ public class CameraScript : MonoBehaviour
     IEnumerator EnterPlayMode()
     {
         var pos = transform.position;
-        var dest = wall.transform.position+new Vector3(0f,1.7f,-1f);
+        var dest = wall.transform.position+new Vector3(0f,1.7f,-8f);
         var rot = transform.rotation;
         var destination = Quaternion.LookRotation(new Vector3(0,0,1));
-        if (data.Count > 0)
+        //if (data.Count > 0)
         {
             var timer = 0f;
             var duration = 0.2f;
@@ -133,7 +133,7 @@ public class CameraScript : MonoBehaviour
                 timer += Time.deltaTime;
                 float t = Mathf.SmoothStep(0, 1, timer / duration); // 使用SmoothStep实现平滑
                 cam.orthographic = false; // 过渡期间强制为透视
-                cam.fieldOfView = Mathf.Lerp(60, 100, t);
+                cam.fieldOfView = Mathf.Lerp(60, 75, t);
                 transform.position = Vector3.Lerp(pos, dest, t);
                 transform.rotation = Quaternion.Slerp(rot, destination, t);
                 if (t >= 1)
@@ -142,9 +142,9 @@ public class CameraScript : MonoBehaviour
                 }
                 yield return null;
             }
-            cam.orthographic = true;
+            //cam.orthographic = true;
         }
-        else
+        //else
         {
             yield return null;
         }

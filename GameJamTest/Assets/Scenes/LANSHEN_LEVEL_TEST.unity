@@ -497,7 +497,7 @@ Transform:
   m_GameObject: {fileID: 761336217}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.47, y: 0.5, z: 9.5}
+  m_LocalPosition: {x: 0.47, y: 0.5, z: 10.74}
   m_LocalScale: {x: 1, y: 1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -982,7 +982,7 @@ Transform:
   m_GameObject: {fileID: 1200081420}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.87, y: 0.51, z: 6.77}
+  m_LocalPosition: {x: -1.87, y: 0.51, z: 8.92}
   m_LocalScale: {x: 1, y: 1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1388,7 +1388,7 @@ Transform:
   m_GameObject: {fileID: 1948889370}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 4.43, z: 8.45}
+  m_LocalPosition: {x: 0, y: 4.43, z: -8.22}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1450,15 +1450,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da27d6c2bf983b445b82bafb92e23608, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraScript
-  data:
-  - target: {fileID: 196761789}
-    UI: {fileID: 0}
-    offset: {x: 0, y: 0, z: 1}
-    dataType: 0
-  - target: {fileID: 1523261461}
-    UI: {fileID: 0}
-    offset: {x: 0, y: 1, z: -3}
-    dataType: 0
+  data: []
   wall: {fileID: 1199327699}
 --- !u!1 &2138408802
 GameObject:
@@ -1748,6 +1740,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4450616185610361740, guid: b10f38f7da1b4264b8bf01682d4e8778, type: 3}
+      propertyPath: goalsParent
+      value: 
+      objectReference: {fileID: 692902421}
     - target: {fileID: 4743721316690371815, guid: b10f38f7da1b4264b8bf01682d4e8778, type: 3}
       propertyPath: m_Name
       value: UI
