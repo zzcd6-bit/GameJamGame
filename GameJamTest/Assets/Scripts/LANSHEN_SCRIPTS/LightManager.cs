@@ -19,8 +19,6 @@ namespace LANSHEN_SCRIPTS
         public float rotationSpeed = 100f;
         public static LightManager instance = null;
 
-        private Vector3 _initialPosition;
-
         void OnEnable()
         {
             if (instance == null)
@@ -28,7 +26,6 @@ namespace LANSHEN_SCRIPTS
                 instance = this;
                 //DontDestroyOnLoad(instance);
 
-                _initialPosition = transform.position;
             }
             _playerLight = instance.GetComponent<Light>();
         }
@@ -103,15 +100,6 @@ namespace LANSHEN_SCRIPTS
         private void OnDisable()
         {
             instance = null;
-        }
-
-        public void ResetToInitialPosition()
-        {
-            if (instance != null)
-            {
-                instance.transform.position = _initialPosition;
-                Debug.Log("LightManager: 灯光位置已重置到初始位置");
-            }
         }
 
     }

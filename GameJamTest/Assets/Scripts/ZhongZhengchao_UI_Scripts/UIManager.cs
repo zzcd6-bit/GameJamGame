@@ -79,37 +79,15 @@ public class UIManager : MonoBehaviour
         if (pauseCanvas != null)
             pauseCanvas.SetActive(false);
 
-        // 3. 重置UI状态
-        ResetUIState();
+        //3. 重新加载界面
 
-        // 4. 调用其他游戏对象的重置方法
-        ResetGameObjects();
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(currentSceneIndex);
 
-        // 5. 重置游戏状态标志
+        // . 重置游戏状态标志
         isPaused = false;
 
         Debug.Log("游戏状态重置完成");
-    }
-
-    void ResetUIState()
-    {
-        // 重置所有UI元素到初始状态
-
-    }
-
-    void ResetGameObjects()
-    {
-        if (lightManager != null)
-        {
-            lightManager.ResetToInitialPosition();
-        }
-
-        if (player != null)
-        {
-            PlayerManager.instance.ResetPlayerState();
-        }
-
-        // 添加其他需要重置的游戏对象...
     }
 
     public void QuitToMainMenu()
