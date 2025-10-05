@@ -29,7 +29,10 @@ namespace LANSHEN_SCRIPTS
         private Vector3 _position;
         //记录运动方向
         private Vector3 _speed;
-        
+
+        private Vector3 _initialPosition;
+        private Vector3 _initialSpeed;
+
         [Header("跳跃高度")]
         public float jumpHeight = 1f;
         
@@ -64,6 +67,10 @@ namespace LANSHEN_SCRIPTS
                 transform.position = hit.point;
                 break;
             }
+
+            _initialPosition = transform.position;
+            _initialSpeed = _speed;
+
             DontDestroyOnLoad(instance);
         }
         void Update()
@@ -211,6 +218,29 @@ namespace LANSHEN_SCRIPTS
             }
             _speed = Vector3.zero;
             return AllowMove.None;
+        }
+
+        public void ResetPlayerState()
+        {
+            if (instance != null)
+            {
+                // 重置位置到初始位置
+                instance.transform.position = _initialPosition;
+
+                // 重置速度
+                _speed = _initialSpeed;
+
+                // 重置检测器位置
+                for (var i = 0; i < 4; i++)
+                {
+                    if (_detector.Count > i && _detector[i] != null)
+                    {
+                        _detector[i].transform.position = _initialPosition + (_offset[i] * instance.transform.GetComponent<Image>().sprite.bounds.size.x);
+                    }
+                }
+
+                Debug.Log("PlayerManager: 玩家状态已重置");
+            }
         }
     }
 }

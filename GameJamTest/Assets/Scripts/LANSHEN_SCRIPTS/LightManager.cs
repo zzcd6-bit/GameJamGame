@@ -18,12 +18,17 @@ namespace LANSHEN_SCRIPTS
         public GameObject rightTopAxis;
         public float rotationSpeed = 100f;
         public static LightManager instance = null;
+
+        private Vector3 _initialPosition;
+
         void OnEnable()
         {
             if (instance == null)
             {
                 instance = this;
                 DontDestroyOnLoad(instance);
+
+                _initialPosition = transform.position;
             }
             _playerLight = instance.GetComponent<Light>();
         }
@@ -95,5 +100,15 @@ namespace LANSHEN_SCRIPTS
             }
             return false;
         }
+
+        public void ResetToInitialPosition()
+        {
+            if (instance != null)
+            {
+                instance.transform.position = _initialPosition;
+                Debug.Log("LightManager: 灯光位置已重置到初始位置");
+            }
+        }
+
     }
 }
