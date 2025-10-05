@@ -2,6 +2,7 @@ using LANSHEN_SCRIPTS;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.Collections;
 
 public class UIManager : MonoBehaviour
 {
@@ -13,9 +14,11 @@ public class UIManager : MonoBehaviour
     public Button restartButton;
     public Button quitToMenuButton;
 
-    [Header("需重置对象")]
-    public LightManager lightManager;
-    public GameObject player;
+    [Header("通关界面")]
+    public GameObject winCanvas; // 新增：通关界面
+    public Transform goalsParent; // 目标物体的父对象
+
+    Coroutine routine;
     private bool isPaused = false;
 
     void Awake()
@@ -43,6 +46,8 @@ public class UIManager : MonoBehaviour
 
         if (pauseCanvas != null)
             pauseCanvas.SetActive(false);
+        
+        routine = null;
     }
 
     void Update()
@@ -51,10 +56,58 @@ public class UIManager : MonoBehaviour
         {
             TogglePause();
         }
+
+        // 如果已经在显示通关界面，则不再检测
+        if (routine != null || (winCanvas != null && winCanvas.activeSelf))
+        {
+            return;
+        }
+
+        // 检测goalsParent是否有子对象
+        if (goalsParent != null && goalsParent.childCount > 0)
+        {
+            // 如果有子对象，检查是否所有目标都已完成
+            bool allGoalsCompleted = true;
+
+            foreach (Transform goalTransform in goalsParent)
+            {
+                var goal = goalTransform.GetComponent<GoalScript>();
+                if (goal != null && goal.hide == false)
+                {
+                    allGoalsCompleted = false; // 还有未完成的目标
+                    break;
+                }
+            }
+
+            // 如果所有目标都完成了，显示通关界面
+            if (allGoalsCompleted)
+            {
+                routine = StartCoroutine(ShowWin());
+            }
+        }
     }
 
+    IEnumerator ShowWin()
+    {
+        yield return null;
+
+        // 方法1：使用winCanvas变量
+        if (winCanvas != null)
+        {
+            winCanvas.SetActive(true);
+            Time.timeScale = 0f; // 通关时暂停游戏
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+            yield break;
+        }
+
+        routine = null; // 重置routine
+    }
     public void TogglePause()
     {
+        if (winCanvas != null && winCanvas.activeSelf)
+            return;
+
         isPaused = !isPaused;
 
         if (pauseCanvas != null)
@@ -80,12 +133,12 @@ public class UIManager : MonoBehaviour
             pauseCanvas.SetActive(false);
 
         //3. 重新加载界面
-
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentSceneIndex);
 
         // . 重置游戏状态标志
         isPaused = false;
+        routine = null;
 
         Debug.Log("游戏状态重置完成");
     }

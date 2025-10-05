@@ -905,8 +905,8 @@ MonoBehaviour:
   resumeButton: {fileID: 546137746912235736}
   restartButton: {fileID: 2696173859399710692}
   quitToMenuButton: {fileID: 6670825576622995932}
-  lightManager: {fileID: 0}
-  player: {fileID: 0}
+  winCanvas: {fileID: 6872379014227484615}
+  goalsParent: {fileID: 0}
 --- !u!1 &5194537843486914125
 GameObject:
   m_ObjectHideFlags: 0
