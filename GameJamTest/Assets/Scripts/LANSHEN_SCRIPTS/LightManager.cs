@@ -23,7 +23,7 @@ namespace LANSHEN_SCRIPTS
             if (instance == null)
             {
                 instance = this;
-                DontDestroyOnLoad(instance);
+                //DontDestroyOnLoad(instance);
             }
             _playerLight = instance.GetComponent<Light>();
         }
@@ -95,5 +95,10 @@ namespace LANSHEN_SCRIPTS
             }
             return false;
         }
+        private void OnDisable()
+        {
+            instance = null;
+        }
     }
+    
 }

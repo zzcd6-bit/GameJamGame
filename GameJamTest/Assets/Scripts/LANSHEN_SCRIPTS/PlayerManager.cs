@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Unity.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -39,19 +40,28 @@ namespace LANSHEN_SCRIPTS
         {
             return Mathf.Sqrt(2f * jumpHeight *_g);
         }
+        
+        Animator amimator;
         void Start()
         {
             _speed = Vector3.zero;
+            img = gameObject.GetComponent<Image>();
+            amimator = gameObject.GetComponent<Animator>();
             if (instance != null) return;
             instance = this;
             for (var i = 0; i < 4; i++)
             {
+                //var s = instance.transform.GetComponent<Image>().sprite.bounds.size;
+                //s /= 80;
+                var s = instance.GetComponent<RectTransform>().sizeDelta;
+                s /= 2;
                 var obj  = new GameObject
                 {
+                    
                     transform =
                     {
                         parent = instance.transform,
-                        position = instance.transform.position+(_offset[i]*instance.transform.GetComponent<Image>().sprite.bounds.size.x),
+                        position = instance.transform.position+new Vector3(s.x*_offset[i].x,s.y*_offset[i].y,0f),
                     },
                     name = $"{i}"
                 };
@@ -64,8 +74,10 @@ namespace LANSHEN_SCRIPTS
                 transform.position = hit.point;
                 break;
             }
-            DontDestroyOnLoad(instance);
+            //DontDestroyOnLoad(instance);
         }
+
+        private Image img;
         void Update()
         {
             _speed.x = 0;
@@ -103,8 +115,42 @@ namespace LANSHEN_SCRIPTS
             {
                 _speed.x = 0;
             }*/
+
+            var a = amimator.GetCurrentAnimatorClipInfo(0)[0].clip;
+            if (_speed.y != 0)
+            {
+                if (a.name != "jump")
+                {
+                    amimator.Play("jump");
+                }
+            }
+            else if (_speed.x != 0)
+            {
+                if (a.name != "walk")
+                {
+                    amimator.Play("walk");
+                }
+                
+            }
+            else
+            {
+                if (a.name != "idle")
+                {
+                    amimator.Play("idle");
+                }
+            }
+            if (_speed.x > 0)
+            {
+                transform.localScale = new Vector3(1, 1, 1);
+            }
+            else if (_speed.x < 0)
+            {
+                transform.localScale = new Vector3(-1, 1, 1);
+            }
             transform.position += _speed*Time.deltaTime;
         }
+
+        
 
         private void LateUpdate()
         {
@@ -168,6 +214,14 @@ namespace LANSHEN_SCRIPTS
                 _speed.y = 0f;
             }
 
+            foreach (var detector in _detector)
+            {
+                if (detector.transform.position.y < 0&&_speed.y<0)
+                {
+                    _speed.y = 0f;
+                }
+            }
+
             for (int t = 0; t < 3; t++)
             {
                 var s = _speed;
@@ -189,6 +243,11 @@ namespace LANSHEN_SCRIPTS
                     var dist = dir.magnitude;
                     dir.Normalize();
                     Debug.DrawRay(sPos, dir, Color.red);
+                    if (!LightManager.instance.InArea(sPos))
+                    {
+                        flag = true;
+                    }
+                    
                     if(Physics.Raycast(sPos, dir, out RaycastHit hit, dist))
                     {
                         var interaction = hit.collider.GetComponent<InteractionBaseObject>();
@@ -196,10 +255,6 @@ namespace LANSHEN_SCRIPTS
                         {
                             interaction.Interaction();
                         }
-                        flag = true;
-                    }
-                    else if (!LightManager.instance.InArea(sPos))
-                    {
                         flag = true;
                     }
                 }
@@ -212,5 +267,11 @@ namespace LANSHEN_SCRIPTS
             _speed = Vector3.zero;
             return AllowMove.None;
         }
+        private void OnDisable()
+        {
+            instance = null;
+        }
     }
+    
+    
 }
