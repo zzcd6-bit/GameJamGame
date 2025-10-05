@@ -26,7 +26,7 @@ namespace LANSHEN_SCRIPTS
             if (instance == null)
             {
                 instance = this;
-                DontDestroyOnLoad(instance);
+                //DontDestroyOnLoad(instance);
 
                 _initialPosition = transform.position;
             }
@@ -100,6 +100,10 @@ namespace LANSHEN_SCRIPTS
             }
             return false;
         }
+        private void OnDisable()
+        {
+            instance = null;
+        }
 
         public void ResetToInitialPosition()
         {
@@ -111,4 +115,5 @@ namespace LANSHEN_SCRIPTS
         }
 
     }
+    
 }

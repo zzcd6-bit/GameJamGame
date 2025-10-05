@@ -719,10 +719,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
-    - target: {fileID: 5194537843486914125, guid: b10f38f7da1b4264b8bf01682d4e8778, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1648,9 +1644,11 @@ MonoBehaviour:
   - target: {fileID: 196761789}
     UI: {fileID: 0}
     offset: {x: 0, y: 0, z: 1}
+    dataType: 0
   - target: {fileID: 1523261461}
     UI: {fileID: 0}
     offset: {x: 0, y: 1, z: -3}
+    dataType: 0
   wall: {fileID: 1199327699}
 --- !u!1 &2138408802
 GameObject:

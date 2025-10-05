@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using LANSHEN_SCRIPTS;
+using Unity.VisualScripting;
 using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -17,15 +19,15 @@ public class CameraScript : MonoBehaviour
         //相机偏移量
         public Vector3 offset;
         //相机类型
-        //public DataType dataType;
+        public DataType dataType;
 
-        /*
+        
         public enum DataType
         {
             Perspective,
             Orthographic
         }
-        */
+        
     }
     
     [SerializeField]
@@ -47,6 +49,7 @@ public class CameraScript : MonoBehaviour
             var rotation = transform.rotation;
             var position = transform.position;
             float a = 0;
+            cam.orthographic = d.dataType==Data.DataType.Orthographic;
             //插值
             while (a < 1)
             {
@@ -80,6 +83,7 @@ public class CameraScript : MonoBehaviour
             }
         }
         guide = true;
+        coroutine = null;
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -104,6 +108,7 @@ public class CameraScript : MonoBehaviour
             var t = GetObjectBoundsCenter(d.target);
             var pos = t + d.offset;
             var rot = Quaternion.LookRotation(-d.offset);
+            cam.orthographic = d.dataType==Data.DataType.Orthographic;
             transform.position = pos;
             transform.rotation = rot;
         }
@@ -157,8 +162,20 @@ public class CameraScript : MonoBehaviour
             StartCoroutine(EnterPlayMode());
         }
     }
-    
-    
+
+    private void LateUpdate()
+    {
+        if (guide == true)
+        {
+            return;
+        }
+        if (coroutine == null)
+        {
+            transform.position = new Vector3(PlayerManager.instance.transform.position.x,transform.position.y,transform.position.z);
+        }
+    }
+
+
     public static Vector3 GetObjectBoundsCenter(GameObject obj)
     {
         Renderer[] renderers = obj.GetComponentsInChildren<Renderer>();
