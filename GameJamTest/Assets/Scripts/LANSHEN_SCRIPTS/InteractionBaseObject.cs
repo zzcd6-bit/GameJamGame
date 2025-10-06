@@ -33,7 +33,7 @@ namespace LANSHEN_SCRIPTS
         /// </summary>
         public virtual void Interaction()
         {
-            
+
         }
     }
 }
