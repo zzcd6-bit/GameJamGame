@@ -86,6 +86,7 @@ public class CameraScript : MonoBehaviour
         }
         guide = true;
         coroutine = null;
+        StartCoroutine(EnterPlayMode());
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -115,6 +116,7 @@ public class CameraScript : MonoBehaviour
             transform.rotation = rot;
         }
         guide = true;
+        StartCoroutine(EnterPlayMode());
     }
 
     //墙的位置
@@ -122,6 +124,7 @@ public class CameraScript : MonoBehaviour
     //进入游戏阶段
     IEnumerator EnterPlayMode()
     {
+        guide = false;
         var pos = transform.position;
         var offset = new Vector3(0f, 1.7f, -8f);
         var dest = wall.transform.position+offset;
@@ -161,11 +164,10 @@ public class CameraScript : MonoBehaviour
         {
             return;
         }
-        if (Keyboard.current != null && Keyboard.current.anyKey.wasPressedThisFrame)
+        /*if (Keyboard.current != null && Keyboard.current.anyKey.wasPressedThisFrame)
         {
-            guide = false;
             StartCoroutine(EnterPlayMode());
-        }
+        }*/
     }
 
     private void LateUpdate()

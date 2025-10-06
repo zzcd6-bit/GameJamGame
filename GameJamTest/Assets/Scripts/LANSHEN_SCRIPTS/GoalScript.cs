@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using LANSHEN_SCRIPTS;
 using UnityEngine;
@@ -5,6 +6,22 @@ using UnityEngine.UI;
 
 public class GoalScript : MonoBehaviour
 {
+    [Serializable]
+    enum DirtyType
+    {
+        污渍1,
+        污渍2,
+        污渍3,
+        污渍4,
+        污渍5,
+        污渍6,
+        污渍7,
+        
+    }
+
+    [SerializeField] [Header("污渍类型")] 
+    private DirtyType _dirtyType;
+    Animator animator;
     public bool hide = false;
     public float radius = 0.5f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -18,6 +35,9 @@ public class GoalScript : MonoBehaviour
             break;
         }
         radius = gameObject.GetComponent<Image>().sprite.bounds.size.x;
+        animator = gameObject.GetComponent<Animator>();
+        int type = (int)_dirtyType+1;
+        animator.Play($"I{type}");
     }
     
     private Coroutine _coroutine;
@@ -50,6 +70,8 @@ public class GoalScript : MonoBehaviour
     IEnumerator SetHide()
     {
         AudioManager.PlaySound("Wipe");
+        int type = (int)_dirtyType+1;
+        animator.Play($"E{type}");
         yield return new WaitForSeconds(PlayerManager.instance.PlaySpecial("collection"));
         Debug.Log(1);
         hide = true;

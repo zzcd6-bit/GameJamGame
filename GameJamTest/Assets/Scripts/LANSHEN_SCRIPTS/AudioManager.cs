@@ -16,7 +16,6 @@ public class AudioManager : MonoBehaviour
             audioSource = gameObject.AddComponent<AudioSource>();
             bgm = gameObject.AddComponent<AudioSource>();
         }
-        
     }
 
     public static void PlaySound(string sound)
