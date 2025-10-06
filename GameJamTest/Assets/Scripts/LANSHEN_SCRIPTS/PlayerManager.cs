@@ -46,6 +46,7 @@ namespace LANSHEN_SCRIPTS
         }
         
         Animator amimator;
+        private bool IsTrigger = false;
         void OnEnable()
         {
             _speed = Vector3.zero;
@@ -230,7 +231,10 @@ namespace LANSHEN_SCRIPTS
                 {
                     int j = 0;
                     var index = int.Parse(detector.name);
-                    Debug.Log(hit.collider.gameObject.name);
+                    //Debug.Log(hit.collider.gameObject.name);
+
+                    TryTriggerObjectInteraction(hit.collider.gameObject);
+
                     /*if (_speed == Vector3.zero)
                     {
                         transform.position = _detector[j].transform.position;
@@ -298,6 +302,17 @@ namespace LANSHEN_SCRIPTS
                 }
             }*/
             
+        }
+
+        void TryTriggerObjectInteraction(GameObject hitObject)
+        {
+            var dialogueInteraction = hitObject.GetComponent<DialogueInteractionObject>();
+            if (dialogueInteraction != null && IsTrigger == false)
+            {
+                IsTrigger = true;
+                dialogueInteraction.Interaction(); // 调用子类的方法
+                return;
+            }
         }
 
         enum AllowMove
@@ -372,7 +387,7 @@ namespace LANSHEN_SCRIPTS
                     {
                         if (t == 2)
                         {
-                            Debug.Log(hit.collider.gameObject.name);
+                            //Debug.Log(hit.collider.gameObject.name);
                         }
                         
                         var interaction = hit.collider.GetComponent<InteractionBaseObject>();
