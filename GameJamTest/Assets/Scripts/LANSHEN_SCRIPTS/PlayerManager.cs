@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Unity.Collections;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -250,8 +251,30 @@ namespace LANSHEN_SCRIPTS
                 var flag = false;
                 foreach (var detector in _detector)
                 {
+                    var n = s;
+                    int index = int.Parse(detector.name);
+                    switch (index)
+                    {
+                        case 0:
+                            n.x = 0;
+                            n.y = n.y<0 ? 0 : n.y;
+                            break;
+                        case 1:
+                            n.x = 0;
+                            n.y = n.y>0 ? 0 : n.y;
+                            break;
+                        case 2:
+                            n.y = 0;
+                            n.x = n.x<0 ? 0 : n.x;
+                            break;
+                        case 3:
+                            n.y = 0;
+                            n.x = n.x>0 ? 0 : n.x;
+                            break;
+                            
+                    }
                     var sPos = detector.transform.position;
-                    sPos+=s*Time.deltaTime;
+                    sPos+=n*Time.deltaTime;
                     var dir = LightManager.instance.transform.position - sPos;
                     var dist = dir.magnitude;
                     dir.Normalize();
@@ -260,9 +283,13 @@ namespace LANSHEN_SCRIPTS
                     {
                         flag = true;
                     }
-                    
                     if(Physics.Raycast(sPos, dir, out RaycastHit hit, dist))
                     {
+                        if (t == 2)
+                        {
+                            Debug.Log(hit.collider.gameObject.name);
+                        }
+                        
                         var interaction = hit.collider.GetComponent<InteractionBaseObject>();
                         if (interaction != null)
                         {
