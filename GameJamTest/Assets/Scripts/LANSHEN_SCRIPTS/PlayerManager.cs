@@ -200,7 +200,7 @@ namespace LANSHEN_SCRIPTS
             {
                 return;
             }
-            Debug.Log("late");
+            //Debug.Log("late");
             int i = 0;
             List<int> hiting = new List<int>();
             foreach (var detector in _detector)
@@ -214,7 +214,7 @@ namespace LANSHEN_SCRIPTS
                 {
                     int j = 0;
                     var index = int.Parse(detector.name);
-                    
+                    Debug.Log(hit.collider.gameObject.name);
                     /*if (_speed == Vector3.zero)
                     {
                         transform.position = _detector[j].transform.position;
@@ -226,7 +226,7 @@ namespace LANSHEN_SCRIPTS
                     //return;
                 }
             }
-            Debug.Log(hiting.Count);
+            //Debug.Log(hiting.Count);
             if (hiting.Count == 1)
             {
                 if (_speed == Vector3.zero)
@@ -267,6 +267,13 @@ namespace LANSHEN_SCRIPTS
             }
             else
             {
+                Debug.Log("failure");
+                //在这里判断卡住失败？？？
+            }
+
+            if (transform.position.y < 0)
+            {
+                Debug.Log("failure");
                 //在这里判断卡住失败？？？
             }
             /*if (hiting.Count == 3)
@@ -354,7 +361,7 @@ namespace LANSHEN_SCRIPTS
                     {
                         if (t == 2)
                         {
-                            //Debug.Log(hit.collider.gameObject.name);
+                            Debug.Log(hit.collider.gameObject.name);
                         }
                         
                         var interaction = hit.collider.GetComponent<InteractionBaseObject>();
