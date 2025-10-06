@@ -1,0 +1,507 @@
+fileFormatVersion: 2
+guid: 004e7e54537a17f48af06ab5f5030716
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3650068403390201756
+    second: T_flowers_C_0
+  - first:
+      213: 3880676086537734404
+    second: T_flowers_C_1
+  - first:
+      213: 418600520863590304
+    second: T_flowers_C_2
+  - first:
+      213: -4024689208372317553
+    second: T_flowers_C_3
+  - first:
+      213: -3961990634650509556
+    second: T_flowers_C_4
+  - first:
+      213: -676346021876607239
+    second: T_flowers_C_5
+  - first:
+      213: -6157914764986795514
+    second: T_flowers_C_6
+  - first:
+      213: 3480975880541397941
+    second: T_flowers_C_7
+  - first:
+      213: -3042811746321670471
+    second: T_flowers_C_8
+  - first:
+      213: -191801240434121032
+    second: T_flowers_C_9
+  - first:
+      213: 7330170291656078225
+    second: T_flowers_C_10
+  - first:
+      213: 4640938036341837525
+    second: T_flowers_C_11
+  - first:
+      213: 7845467581794263607
+    second: T_flowers_C_12
+  - first:
+      213: -7473529509687990672
+    second: T_flowers_C_13
+  - first:
+      213: 7232741241945315937
+    second: T_flowers_C_14
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: T_flowers_C_0
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 962
+        width: 420
+        height: 382
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 460cc02402a585dc0800000000000000
+      internalID: -3650068403390201756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_flowers_C_1
+      rect:
+        serializedVersion: 2
+        x: 489
+        y: 1130
+        width: 123
+        height: 229
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4094f6a075eead530800000000000000
+      internalID: 3880676086537734404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_flowers_C_2
+      rect:
+        serializedVersion: 2
+        x: 695
+        y: 868
+        width: 308
+        height: 303
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a72ed4b4fa2fc500800000000000000
+      internalID: 418600520863590304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_flowers_C_3
+      rect:
+        serializedVersion: 2
+        x: 705
+        y: 1159
+        width: 112
+        height: 223
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f82be9b1d7e6528c0800000000000000
+      internalID: -4024689208372317553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_flowers_C_4
+      rect:
+        serializedVersion: 2
+        x: 854
+        y: 1165
+        width: 109
+        height: 212
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0f5b32628e2409c0800000000000000
+      internalID: -3961990634650509556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_flowers_C_5
+      rect:
+        serializedVersion: 2
+        x: 990
+        y: 1013
+        width: 360
+        height: 329
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f6dbc460e22d96f0800000000000000
+      internalID: -676346021876607239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_flowers_C_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 827
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60a34d3b521ba8aa0800000000000000
+      internalID: -6157914764986795514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_flowers_C_7
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 819
+        width: 23
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b36f5fce19ee4030800000000000000
+      internalID: 3480975880541397941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_flowers_C_8
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 800
+        width: 163
+        height: 216
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9be5c1696d2c5c5d0800000000000000
+      internalID: -3042811746321670471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_flowers_C_9
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 564
+        width: 511
+        height: 475
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b6e17cb9c5965df0800000000000000
+      internalID: -191801240434121032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_flowers_C_10
+      rect:
+        serializedVersion: 2
+        x: 903
+        y: 21
+        width: 477
+        height: 900
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19338491b0ff9b560800000000000000
+      internalID: 7330170291656078225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_flowers_C_11
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 0
+        width: 580
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5de01c82e8ce76040800000000000000
+      internalID: 4640938036341837525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_flowers_C_12
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 555
+        width: 186
+        height: 183
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 732a0b5d233b0ec60800000000000000
+      internalID: 7845467581794263607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_flowers_C_13
+      rect:
+        serializedVersion: 2
+        x: 632
+        y: 386
+        width: 268
+        height: 264
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 076e5a4e180b84890800000000000000
+      internalID: -7473529509687990672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_flowers_C_14
+      rect:
+        serializedVersion: 2
+        x: 610
+        y: 21
+        width: 343
+        height: 342
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16ad77eb6dbdf5460800000000000000
+      internalID: 7232741241945315937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      T_flowers_C_0: -3650068403390201756
+      T_flowers_C_1: 3880676086537734404
+      T_flowers_C_10: 7330170291656078225
+      T_flowers_C_11: 4640938036341837525
+      T_flowers_C_12: 7845467581794263607
+      T_flowers_C_13: -7473529509687990672
+      T_flowers_C_14: 7232741241945315937
+      T_flowers_C_2: 418600520863590304
+      T_flowers_C_3: -4024689208372317553
+      T_flowers_C_4: -3961990634650509556
+      T_flowers_C_5: -676346021876607239
+      T_flowers_C_6: -6157914764986795514
+      T_flowers_C_7: 3480975880541397941
+      T_flowers_C_8: -3042811746321670471
+      T_flowers_C_9: -191801240434121032
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
