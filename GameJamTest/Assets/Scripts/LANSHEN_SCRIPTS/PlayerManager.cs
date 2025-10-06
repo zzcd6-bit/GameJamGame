@@ -265,17 +265,12 @@ namespace LANSHEN_SCRIPTS
                     }
                 }
             }
-            else
+            else if(hiting.Count >= 3 ||transform.position.y < 0)
             {
                 Debug.Log("failure");
                 //在这里判断卡住失败？？？
             }
-
-            if (transform.position.y < 0)
-            {
-                Debug.Log("failure");
-                //在这里判断卡住失败？？？
-            }
+            
             /*if (hiting.Count == 3)
             {
                 for (int n = 0; n < 4; n++)
