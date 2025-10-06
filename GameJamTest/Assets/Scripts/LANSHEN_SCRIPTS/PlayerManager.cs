@@ -28,6 +28,8 @@ namespace LANSHEN_SCRIPTS
             new Vector3(-1f, 0f, 0f),
             new Vector3(1f, 0f, 0f),
         };
+        
+        private AudioSource _audioSource;
         //记录初始位置。
         private Vector3 _position;
         //记录运动方向
@@ -50,6 +52,12 @@ namespace LANSHEN_SCRIPTS
             img = gameObject.GetComponent<Image>();
             amimator = gameObject.GetComponent<Animator>();
             if (instance != null) return;
+            _audioSource = gameObject.AddComponent<AudioSource>();
+            _audioSource.playOnAwake = true;
+            _audioSource.loop = true;
+            _audioSource.clip = Resources.Load<AudioClip>("audio/Walk");
+            _audioSource.Stop();
+            AudioManager.PlayBGM("BGM");
             instance = this;
             for (var i = 0; i < 4; i++)
             {
@@ -95,6 +103,7 @@ namespace LANSHEN_SCRIPTS
             {
                 if (_speed.y == 0)
                 {
+                    AudioManager.PlaySound("Jump");
                     _speed.y = getJumpSpeed();
                     //Debug.Log(_speed);
                 }
@@ -133,6 +142,7 @@ namespace LANSHEN_SCRIPTS
                 {
                     amimator.Play("jump");
                 }
+                _audioSource.Stop();
             }
             else if (_speed.x != 0)
             {
@@ -140,7 +150,12 @@ namespace LANSHEN_SCRIPTS
                 {
                     amimator.Play("walk");
                 }
-                
+
+                if (!_audioSource.isPlaying)
+                {
+                    _audioSource.Play();
+                }
+                    
             }
             else
             {
@@ -148,6 +163,7 @@ namespace LANSHEN_SCRIPTS
                 {
                     amimator.Play("idle");
                 }
+                _audioSource.Stop();
             }
             if (_speed.x > 0)
             {

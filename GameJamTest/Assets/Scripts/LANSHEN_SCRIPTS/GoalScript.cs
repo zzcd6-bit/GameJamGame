@@ -19,10 +19,16 @@ public class GoalScript : MonoBehaviour
         }
         radius = gameObject.GetComponent<Image>().sprite.bounds.size.x;
     }
+    
+    private Coroutine _coroutine;
 
     // Update is called once per frame
     void Update()
     {
+        if (_coroutine != null)
+        {
+            return;
+        }
         if (hide)
         {
             return;
@@ -35,7 +41,7 @@ public class GoalScript : MonoBehaviour
             Vector2 gpos = new Vector2(transform.position.x, transform.position.y);
             if (Vector2.Distance(ppos, gpos) < radius)
             {
-                StartCoroutine(SetHide());
+                _coroutine = StartCoroutine(SetHide());
             }  
         }
         
@@ -43,6 +49,7 @@ public class GoalScript : MonoBehaviour
 
     IEnumerator SetHide()
     {
+        AudioManager.PlaySound("Wipe");
         yield return new WaitForSeconds(PlayerManager.instance.PlaySpecial("collection"));
         Debug.Log(1);
         hide = true;

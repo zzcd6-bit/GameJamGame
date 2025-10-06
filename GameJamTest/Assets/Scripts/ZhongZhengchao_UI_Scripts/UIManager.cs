@@ -8,22 +8,22 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager Instance;
 
-    [Header("ÔÝÍ£½çÃæ")]
+    [Header("ï¿½ï¿½Í£ï¿½ï¿½ï¿½ï¿½")]
     public GameObject pauseCanvas;
     public Button resumeButton;
     public Button restartButton;
     public Button quitToMenuButton;
 
-    [Header("Í¨¹Ø½çÃæ")]
-    public GameObject winCanvas; // ÐÂÔö£ºÍ¨¹Ø½çÃæ
-    public Transform goalsParent; // Ä¿±êÎïÌåµÄ¸¸¶ÔÏó
+    [Header("Í¨ï¿½Ø½ï¿½ï¿½ï¿½")]
+    public GameObject winCanvas; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¨ï¿½Ø½ï¿½ï¿½ï¿½
+    public Transform goalsParent; // Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¸ï¿½ï¿½ï¿½ï¿½ï¿½
 
     Coroutine routine;
     private bool isPaused = false;
 
     void Awake()
     {
-        // µ¥ÀýÄ£Ê½
+        // ï¿½ï¿½ï¿½ï¿½Ä£Ê½
         if (Instance == null)
         {
             Instance = this;
@@ -37,7 +37,7 @@ public class UIManager : MonoBehaviour
 
     void Start()
     {
-        // ×Ô¶¯²éÕÒUIÔªËØ
+        // ï¿½Ô¶ï¿½ï¿½ï¿½ï¿½ï¿½UIÔªï¿½ï¿½
         FindUIElements();
 
         resumeButton?.onClick.AddListener(ResumeGame);
@@ -57,16 +57,16 @@ public class UIManager : MonoBehaviour
             TogglePause();
         }
 
-        // Èç¹ûÒÑ¾­ÔÚÏÔÊ¾Í¨¹Ø½çÃæ£¬Ôò²»ÔÙ¼ì²â
+        // ï¿½ï¿½ï¿½ï¿½Ñ¾ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾Í¨ï¿½Ø½ï¿½ï¿½æ£¬ï¿½ï¿½ï¿½Ù¼ï¿½ï¿½
         if (routine != null || (winCanvas != null && winCanvas.activeSelf))
         {
             return;
         }
 
-        // ¼ì²âgoalsParentÊÇ·ñÓÐ×Ó¶ÔÏó
+        // ï¿½ï¿½ï¿½goalsParentï¿½Ç·ï¿½ï¿½ï¿½ï¿½Ó¶ï¿½ï¿½ï¿½
         if (goalsParent != null && goalsParent.childCount > 0)
         {
-            // Èç¹ûÓÐ×Ó¶ÔÏó£¬¼ì²éÊÇ·ñËùÓÐÄ¿±ê¶¼ÒÑÍê³É
+            // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¶ï¿½ï¿½ó£¬¼ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ê¶¼ï¿½ï¿½ï¿½ï¿½ï¿½
             bool allGoalsCompleted = true;
 
             foreach (Transform goalTransform in goalsParent)
@@ -74,12 +74,12 @@ public class UIManager : MonoBehaviour
                 var goal = goalTransform.GetComponent<GoalScript>();
                 if (goal != null && goal.hide == false)
                 {
-                    allGoalsCompleted = false; // »¹ÓÐÎ´Íê³ÉµÄÄ¿±ê
+                    allGoalsCompleted = false; // ï¿½ï¿½ï¿½ï¿½Î´ï¿½ï¿½Éµï¿½Ä¿ï¿½ï¿½
                     break;
                 }
             }
 
-            // Èç¹ûËùÓÐÄ¿±ê¶¼Íê³ÉÁË£¬ÏÔÊ¾Í¨¹Ø½çÃæ
+            // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ê¶¼ï¿½ï¿½ï¿½ï¿½Ë£ï¿½ï¿½ï¿½Ê¾Í¨ï¿½Ø½ï¿½ï¿½ï¿½
             if (allGoalsCompleted)
             {
                 routine = StartCoroutine(ShowWin());
@@ -89,19 +89,20 @@ public class UIManager : MonoBehaviour
 
     IEnumerator ShowWin()
     {
+        AudioManager.PlaySound("Victory");
         yield return null;
 
-        // ·½·¨1£ºÊ¹ÓÃwinCanvas±äÁ¿
+        // ï¿½ï¿½ï¿½ï¿½1ï¿½ï¿½Ê¹ï¿½ï¿½winCanvasï¿½ï¿½ï¿½ï¿½
         if (winCanvas != null)
         {
             winCanvas.SetActive(true);
-            Time.timeScale = 0f; // Í¨¹ØÊ±ÔÝÍ£ÓÎÏ·
+            Time.timeScale = 0f; // Í¨ï¿½ï¿½Ê±ï¿½ï¿½Í£ï¿½ï¿½Ï·
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
             yield break;
         }
 
-        routine = null; // ÖØÖÃroutine
+        routine = null; // ï¿½ï¿½ï¿½ï¿½routine
     }
     public void TogglePause()
     {
@@ -123,24 +124,24 @@ public class UIManager : MonoBehaviour
 
     public void ResetGameState()
     {
-        Debug.Log("ÖØÖÃÓÎÏ·×´Ì¬");
+        Debug.Log("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï·×´Ì¬");
 
-        // 1. »Ö¸´ÓÎÏ·Ê±¼ä
+        // 1. ï¿½Ö¸ï¿½ï¿½ï¿½Ï·Ê±ï¿½ï¿½
         Time.timeScale = 1f;
 
-        // 2. Òþ²ØÔÝÍ£½çÃæ
+        // 2. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í£ï¿½ï¿½ï¿½ï¿½
         if (pauseCanvas != null)
             pauseCanvas.SetActive(false);
 
-        //3. ÖØÐÂ¼ÓÔØ½çÃæ
+        //3. ï¿½ï¿½ï¿½Â¼ï¿½ï¿½Ø½ï¿½ï¿½ï¿½
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentSceneIndex);
 
-        //4 . ÖØÖÃÓÎÏ·×´Ì¬±êÖ¾
+        //4 . ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï·×´Ì¬ï¿½ï¿½Ö¾
         isPaused = false;
         routine = null;
 
-        Debug.Log("ÓÎÏ·×´Ì¬ÖØÖÃÍê³É");
+        Debug.Log("ï¿½ï¿½Ï·×´Ì¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
     }
 
     public void QuitToMainMenu()
@@ -193,7 +194,7 @@ public class UIManager : MonoBehaviour
         return isPaused;
     }
 
-    // ÖØÖÃ·½·¨
+    // ï¿½ï¿½ï¿½Ã·ï¿½ï¿½ï¿½
     public void SoftReset()
     {
         ResetGameState();
