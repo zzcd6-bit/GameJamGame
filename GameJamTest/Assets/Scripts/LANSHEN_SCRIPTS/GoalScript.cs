@@ -76,5 +76,6 @@ public class GoalScript : MonoBehaviour
         Debug.Log(1);
         hide = true;
         gameObject.SetActive(false);
+       
     }
 }

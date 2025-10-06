@@ -8,10 +8,22 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/StartMenu.unity
     guid: b5bc3cd780251a84492fcbcb6eac0a90
   - enabled: 1
+    path: Assets/Scenes/LANSHEN_LEVEL_TEST.unity
+    guid: 894cc9f97c62ede44ae6b2d0453913f0
+  - enabled: 1
+    path: Assets/Scenes/1.unity
+    guid: 646e0643f99f4ba41977f6d67b61dba9
+  - enabled: 1
+    path: Assets/Scenes/1 1.unity
+    guid: a6fd617b80d58354395027210b89a75f
+  - enabled: 1
+    path: Assets/Scenes/Kitchen.unity
+    guid: 545b4af199957f64cb26aa78f413fc28
+  - enabled: 0
     path: Assets/Scenes/LoadingScreen.unity
     guid: c7ec897f3200da749a12343375e08af6
   - enabled: 0
@@ -20,10 +32,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/ZhongZhengchao_UI_TEST.unity
     guid: f08d4c6ecb7ecf647855e3e8d83e6e8a
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Level1.unity
     guid: 25153608bf554484d90d128bd6353c15
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Peng Cheng.unity
     guid: 698085c8bb56a2a43a63333a2c055242
   m_configObjects:

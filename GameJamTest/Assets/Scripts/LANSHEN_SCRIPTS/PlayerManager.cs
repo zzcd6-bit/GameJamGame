@@ -285,7 +285,12 @@ namespace LANSHEN_SCRIPTS
             {
                 Debug.Log("failure");
                 //在这里判断卡住失败,调用你的失败处理逻辑
-            }
+                if (amimator != null)
+                {
+                    amimator.SetTrigger("DieTrigger");
+                }
+          
+    }
             
             /*if (hiting.Count == 3)
             {

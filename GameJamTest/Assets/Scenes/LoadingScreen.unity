@@ -804,7 +804,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LoadingScreen
   progressBar: {fileID: 34902045}
-  gameSceneName: GameScene
 --- !u!1 &1210652751
 GameObject:
   m_ObjectHideFlags: 0
