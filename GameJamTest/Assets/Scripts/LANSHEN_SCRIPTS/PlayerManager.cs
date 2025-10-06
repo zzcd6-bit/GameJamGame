@@ -230,7 +230,7 @@ namespace LANSHEN_SCRIPTS
                 {
                     int j = 0;
                     var index = int.Parse(detector.name);
-                    Debug.Log(hit.collider.gameObject.name);
+                    //Debug.Log(hit.collider.gameObject.name);
                     /*if (_speed == Vector3.zero)
                     {
                         transform.position = _detector[j].transform.position;
@@ -281,10 +281,10 @@ namespace LANSHEN_SCRIPTS
                     }
                 }
             }
-            else if(hiting.Count >= 3 ||transform.position.y < 0)
+            else if(hiting.Count >= 3 ||_detector[1].transform.position.y <= 0)
             {
                 Debug.Log("failure");
-                //在这里判断卡住失败？？？
+                //在这里判断卡住失败,调用你的失败处理逻辑
             }
             
             /*if (hiting.Count == 3)

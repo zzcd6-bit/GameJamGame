@@ -21,6 +21,7 @@ public class CameraScript : MonoBehaviour
         //相机类型
         public DataType dataType;
 
+        public float view;
         
         public enum DataType
         {
@@ -52,6 +53,14 @@ public class CameraScript : MonoBehaviour
             var position = transform.position;
             float a = 0;
             cam.orthographic = d.dataType==Data.DataType.Orthographic;
+            if (d.dataType == Data.DataType.Orthographic)
+            {
+                cam.orthographicSize = d.view;
+            }
+            else
+            {
+                cam.fieldOfView = d.view;
+            }
             //插值
             while (a < 1)
             {
@@ -120,14 +129,13 @@ public class CameraScript : MonoBehaviour
     }
 
     //墙的位置
-    public GameObject wall;
     //进入游戏阶段
     IEnumerator EnterPlayMode()
     {
         guide = false;
         var pos = transform.position;
-        var offset = new Vector3(0f, 1.7f, -8f);
-        var dest = wall.transform.position+offset;
+        var offset = new Vector3(0f, 5f, 3f);
+        var dest = new Vector3(PlayerManager.instance.transform.position.x,offset.y,offset.z);
         var rot = transform.rotation;
         var destination = Quaternion.LookRotation(new Vector3(0,0,1));
         //if (data.Count > 0)
