@@ -247,7 +247,15 @@ namespace LANSHEN_SCRIPTS
                 }
                 else if (hiting[0] + hiting[1] == 5) //左右
                 {
-                    transform.position +=_offset[0]*Time.deltaTime*speed;
+                    if (_speed == Vector3.zero)
+                    {
+                        transform.position = _detector[0].transform.position;
+                    }
+                    else
+                    {
+                        transform.position +=_offset[0]*Time.deltaTime*speed;
+                    }
+                    
                 }
                 else
                 {
