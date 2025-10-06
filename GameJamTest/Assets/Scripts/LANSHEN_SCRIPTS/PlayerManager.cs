@@ -160,8 +160,36 @@ namespace LANSHEN_SCRIPTS
             transform.position += _speed*Time.deltaTime;
         }
 
-        
 
+
+        private int GetDirection(int index)
+        {
+            var j = 0;
+            switch (index)
+            {
+                case 0:
+                {
+                    j = 1;
+                    break;
+                }
+                case 1:
+                {
+                    j = 0;
+                    break;
+                }
+                case 2:
+                {
+                    j = 3;
+                    break;
+                }
+                case 3:
+                {
+                    j = 2;
+                    break;
+                }
+            }
+            return j;
+        }
         private void LateUpdate()
         {
             if (freezed)
@@ -172,7 +200,9 @@ namespace LANSHEN_SCRIPTS
             {
                 return;
             }
+            Debug.Log("late");
             int i = 0;
+            List<int> hiting = new List<int>();
             foreach (var detector in _detector)
             {
                 var sPos = detector.transform.position;
@@ -184,34 +214,64 @@ namespace LANSHEN_SCRIPTS
                 {
                     int j = 0;
                     var index = int.Parse(detector.name);
-                    switch (index)
+                    
+                    /*if (_speed == Vector3.zero)
                     {
-                        case 0:
-                        {
-                            j = 1;
-                            break;
-                        }
-                        case 1:
-                        {
-                            j = 0;
-                            break;
-                        }
-                        case 2:
-                        {
-                            j = 3;
-                            break;
-                        }
-                        case 3:
-                        {
-                            j = 2;
-                            break;
-                        }
-                    }
-                    transform.position = _detector[j].transform.position;
-                    return;
+                        transform.position = _detector[j].transform.position;
+                        return;
+                    }*/
+                    //
+                    //transform.position +=_offset[j]*Time.deltaTime;
+                    hiting.Add(index);
+                    //return;
+                }
+            }
+            Debug.Log(hiting.Count);
+            if (hiting.Count == 1)
+            {
+                if (_speed == Vector3.zero)
+                {
+                    transform.position =_detector[GetDirection(hiting[0])].transform.position;
+                }
+                else
+                {
+                    transform.position +=_offset[GetDirection(hiting[0])]*Time.deltaTime*speed;
                 }
                 
             }
+            else if (hiting.Count == 2)
+            {
+                if (hiting[0] + hiting[1] == 1) //上下
+                {
+                    transform.position +=_offset[2]*Time.deltaTime*speed;
+                }
+                else if (hiting[0] + hiting[1] == 5) //左右
+                {
+                    transform.position +=_offset[0]*Time.deltaTime*speed;
+                }
+                else
+                {
+                    foreach (var item in hiting)
+                    {
+                        transform.position +=_offset[GetDirection(item)]*Time.deltaTime*speed;
+                    }
+                }
+            }
+            else
+            {
+                //在这里判断卡住失败？？？
+            }
+            /*if (hiting.Count == 3)
+            {
+                for (int n = 0; n < 4; n++)
+                {
+                    if (!hiting.Contains(n))
+                    {
+                        transform.position = _detector[n].transform.position;
+                    }
+                }
+            }*/
+            
         }
 
         enum AllowMove
@@ -271,7 +331,6 @@ namespace LANSHEN_SCRIPTS
                             n.y = 0;
                             n.x = n.x>0 ? 0 : n.x;
                             break;
-                            
                     }
                     var sPos = detector.transform.position;
                     sPos+=n*Time.deltaTime;
@@ -287,7 +346,7 @@ namespace LANSHEN_SCRIPTS
                     {
                         if (t == 2)
                         {
-                            Debug.Log(hit.collider.gameObject.name);
+                            //Debug.Log(hit.collider.gameObject.name);
                         }
                         
                         var interaction = hit.collider.GetComponent<InteractionBaseObject>();
