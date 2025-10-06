@@ -4,5 +4,9 @@
 VersionControlSettings:
   m_ObjectHideFlags: 0
   m_Mode: Visible Meta Files
+<<<<<<< Updated upstream
   m_CollabEditorSettings:
     inProgressEnabled: 1
+=======
+  m_TrackPackagesOutsideProject: 0
+>>>>>>> Stashed changes
