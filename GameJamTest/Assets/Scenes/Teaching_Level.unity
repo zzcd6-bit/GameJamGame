@@ -292,6 +292,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 449275b8ce0335242a511b0a6f0aa0cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LANSHEN_SCRIPTS.LightManager
+  freezed: 0
   leftDownAxis: {fileID: 1824947256}
   rightTopAxis: {fileID: 1188480284}
   rotationSpeed: 0
@@ -711,6 +712,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1683761877}
+    - target: {fileID: 4450616185610361740, guid: b10f38f7da1b4264b8bf01682d4e8778, type: 3}
+      propertyPath: goalsParent
+      value: 
+      objectReference: {fileID: 1499735109}
     - target: {fileID: 4450616185610361740, guid: b10f38f7da1b4264b8bf01682d4e8778, type: 3}
       propertyPath: lightManager
       value: 
@@ -1495,6 +1500,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f55cd5e6f2dc4c14ebe2de803214ba74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerManager
+  freezed: 0
   jumpHeight: 1
   speed: 5
 --- !u!95 &1683761882
@@ -1830,7 +1836,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TutorialLevel
   stainsParent: {fileID: 1499735109}
-  nextLevelName: MainLevel
+  nextLevelName: Peng Cheng
 --- !u!4 &1966271504
 Transform:
   m_ObjectHideFlags: 0
