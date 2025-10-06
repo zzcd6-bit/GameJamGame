@@ -4,18 +4,6 @@
 QualitySettings:
   m_ObjectHideFlags: 0
   serializedVersion: 5
-<<<<<<< Updated upstream
-  m_CurrentQuality: 1
-  m_QualitySettings:
-  - serializedVersion: 4
-    name: Mobile
-    pixelLightCount: 2
-    shadows: 2
-    shadowResolution: 1
-    shadowProjection: 1
-    shadowCascades: 2
-    shadowDistance: 40
-=======
   m_CurrentQuality: 5
   m_QualitySettings:
   - serializedVersion: 5
@@ -132,7 +120,6 @@ QualitySettings:
     shadowProjection: 1
     shadowCascades: 1
     shadowDistance: 20
->>>>>>> Stashed changes
     shadowNearPlaneOffset: 3
     shadowCascade2Split: 0.33333334
     shadowCascade4Split: {x: 0.06666667, y: 0.2, z: 0.46666667}
@@ -143,18 +130,6 @@ QualitySettings:
     anisotropicTextures: 1
     antiAliasing: 0
     softParticles: 0
-<<<<<<< Updated upstream
-    softVegetation: 1
-    realtimeReflectionProbes: 0
-    billboardsFaceCameraPosition: 1
-    useLegacyDetailDistribution: 1
-    adaptiveVsync: 0
-    vSyncCount: 0
-    realtimeGICPUUsage: 100
-    adaptiveVsyncExtraA: 0
-    adaptiveVsyncExtraB: 0
-    lodBias: 1
-=======
     softVegetation: 0
     realtimeReflectionProbes: 0
     billboardsFaceCameraPosition: 0
@@ -166,7 +141,6 @@ QualitySettings:
     adaptiveVsyncExtraB: 0
     lodBias: 0.7
     meshLodThreshold: 1
->>>>>>> Stashed changes
     maximumLODLevel: 0
     enableLODCrossFade: 1
     streamingMipmapsActive: 0
@@ -175,21 +149,12 @@ QualitySettings:
     streamingMipmapsRenderersPerFrame: 512
     streamingMipmapsMaxLevelReduction: 2
     streamingMipmapsMaxFileIORequests: 1024
-<<<<<<< Updated upstream
-    particleRaycastBudget: 256
-=======
     particleRaycastBudget: 64
->>>>>>> Stashed changes
     asyncUploadTimeSlice: 2
     asyncUploadBufferSize: 16
     asyncUploadPersistentBuffer: 1
     resolutionScalingFixedDPIFactor: 1
-<<<<<<< Updated upstream
-    customRenderPipeline: {fileID: 11400000, guid: 5e6cbd92db86f4b18aec3ed561671858,
-      type: 2}
-=======
     customRenderPipeline: {fileID: 0}
->>>>>>> Stashed changes
     terrainQualityOverrides: 0
     terrainPixelError: 1
     terrainDetailDensityScale: 1
@@ -199,16 +164,9 @@ QualitySettings:
     terrainBillboardStart: 50
     terrainFadeLength: 5
     terrainMaxTrees: 50
-<<<<<<< Updated upstream
-    excludedTargetPlatforms:
-    - Standalone
-  - serializedVersion: 4
-    name: PC
-=======
     excludedTargetPlatforms: []
   - serializedVersion: 5
     name: High
->>>>>>> Stashed changes
     pixelLightCount: 2
     shadows: 2
     shadowResolution: 1
@@ -219,24 +177,6 @@ QualitySettings:
     shadowCascade2Split: 0.33333334
     shadowCascade4Split: {x: 0.06666667, y: 0.2, z: 0.46666667}
     shadowmaskMode: 1
-<<<<<<< Updated upstream
-    skinWeights: 4
-    globalTextureMipmapLimit: 0
-    textureMipmapLimitSettings: []
-    anisotropicTextures: 2
-    antiAliasing: 0
-    softParticles: 0
-    softVegetation: 1
-    realtimeReflectionProbes: 0
-    billboardsFaceCameraPosition: 1
-    useLegacyDetailDistribution: 1
-    adaptiveVsync: 0
-    vSyncCount: 0
-    realtimeGICPUUsage: 100
-    adaptiveVsyncExtraA: 0
-    adaptiveVsyncExtraB: 0
-    lodBias: 2
-=======
     skinWeights: 2
     globalTextureMipmapLimit: 0
     textureMipmapLimitSettings: []
@@ -254,7 +194,6 @@ QualitySettings:
     adaptiveVsyncExtraB: 0
     lodBias: 1
     meshLodThreshold: 1
->>>>>>> Stashed changes
     maximumLODLevel: 0
     enableLODCrossFade: 1
     streamingMipmapsActive: 0
@@ -268,12 +207,7 @@ QualitySettings:
     asyncUploadBufferSize: 16
     asyncUploadPersistentBuffer: 1
     resolutionScalingFixedDPIFactor: 1
-<<<<<<< Updated upstream
-    customRenderPipeline: {fileID: 11400000, guid: 4b83569d67af61e458304325a23e5dfd,
-      type: 2}
-=======
     customRenderPipeline: {fileID: 0}
->>>>>>> Stashed changes
     terrainQualityOverrides: 0
     terrainPixelError: 1
     terrainDetailDensityScale: 1
@@ -283,28 +217,6 @@ QualitySettings:
     terrainBillboardStart: 50
     terrainFadeLength: 5
     terrainMaxTrees: 50
-<<<<<<< Updated upstream
-    excludedTargetPlatforms:
-    - Android
-    - iPhone
-  m_TextureMipmapLimitGroupNames: []
-  m_PerPlatformDefaultQuality:
-    Android: 0
-    GameCoreScarlett: 1
-    GameCoreXboxOne: 1
-    Lumin: 0
-    Nintendo Switch: 1
-    PS4: 1
-    PS5: 1
-    Server: 0
-    Stadia: 0
-    Standalone: 1
-    WebGL: 0
-    Windows Store Apps: 0
-    XboxOne: 0
-    iPhone: 0
-    tvOS: 0
-=======
     excludedTargetPlatforms: []
   - serializedVersion: 5
     name: Very High
@@ -433,4 +345,3 @@ QualitySettings:
     XboxOne: 5
     iPhone: 2
     tvOS: 2
->>>>>>> Stashed changes
